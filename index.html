@@ -18,13 +18,13 @@
 <body class="bg-gray-950 text-gray-200 antialiased h-adr">
     <span class="p-country-name" style="display:none;">Japan</span>
 
-    <div class="max-w-4xl mx-auto overflow-hidden shadow-2xl">
-        <img src="https://via.placeholder.com/1200x400/111827/3b82f6?text=PowerColor+Campaign+Banner" alt="Campaign Banner" class="w-full h-auto block">
+    <div class="max-w-4xl mx-auto overflow-hidden">
+        <img src="https://via.placeholder.com/1200x400/111827/3b82f6?text=PowerColor+Campaign+Banner" alt="Banner" class="w-full h-auto block">
     </div>
 
     <div class="max-w-2xl mx-auto px-4 py-10">
         <div id="form-container" class="bg-gray-900 p-8 rounded-2xl shadow-xl border border-gray-800">
-            <h1 class="text-2xl font-black text-center mb-8 text-blue-500 tracking-wider uppercase">Application Form</h1>
+            <h1 class="text-2xl font-black text-center mb-8 text-blue-500 tracking-wider">APPLICATION FORM</h1>
             
             <div class="space-y-6">
                 <div style="display:none;"><input type="text" id="mid_name" tabindex="-1"></div>
@@ -49,7 +49,7 @@
                         <label class="block text-xs font-bold text-gray-400 mb-2 uppercase">郵便番号 (ハイフンなし) <span class="text-red-500">*</span></label>
                         <div class="flex items-center">
                             <span class="mr-2 text-gray-500 font-bold text-sm">〒</span>
-                            <input type="text" id="postcode" class="p-postal-code w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 focus:ring-1 focus:ring-blue-500 outline-none transition text-sm" placeholder="1234567">
+                            <input type="text" id="postcode" class="p-postal-code w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 focus:ring-1 focus:ring-blue-500 outline-none transition" placeholder="1234567">
                         </div>
                     </div>
                 </div>
@@ -60,54 +60,40 @@
                 </div>
 
                 <div>
-                    <label class="block text-xs font-bold text-gray-400 mb-2 uppercase text-gray-400">製品シリアル番号 (S/N) <span class="text-red-500">*</span></label>
-                    <input type="text" id="serialNumber" class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 focus:ring-1 focus:ring-blue-500 outline-none transition" placeholder="例: SN12345678">
+                    <label class="block text-xs font-bold text-gray-400 mb-2 uppercase">製品シリアル番号 (S/N) <span class="text-red-500">*</span></label>
+                    <input type="text" id="serialNumber" class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 focus:ring-1 focus:ring-blue-500 outline-none transition" placeholder="SN12345678">
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div class="bg-gray-800 p-4 rounded-lg border border-dashed border-gray-700 text-center">
-                        <label class="block text-[10px] font-bold text-gray-500 mb-2 uppercase tracking-widest">シリアル番号の写真 <span class="text-red-500">*</span></label>
-                        <input type="file" id="img1" accept="image/*" class="text-xs text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-xs file:bg-gray-700 file:text-gray-300 hover:file:bg-gray-600 cursor-pointer">
+                        <label class="block text-[10px] font-bold text-gray-500 mb-2 uppercase">シリアル番号の写真 <span class="text-red-500">*</span></label>
+                        <input type="file" id="img1" accept="image/*" class="text-xs text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:bg-gray-700">
                     </div>
                     <div class="bg-gray-800 p-4 rounded-lg border border-dashed border-gray-700 text-center">
-                        <label class="block text-[10px] font-bold text-gray-500 mb-2 uppercase tracking-widest">購入証明の画像 <span class="text-red-500">*</span></label>
-                        <input type="file" id="img2" accept="image/*" class="text-xs text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-xs file:bg-gray-700 file:text-gray-300 hover:file:bg-gray-600 cursor-pointer">
+                        <label class="block text-[10px] font-bold text-gray-500 mb-2 uppercase">購入証明の画像 <span class="text-red-500">*</span></label>
+                        <input type="file" id="img2" accept="image/*" class="text-xs text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:bg-gray-700">
                     </div>
                 </div>
 
-                <button onclick="handleFormSubmit()" id="btn-submit" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-4 rounded-lg mt-4 shadow-lg shadow-blue-900/20 transition-all flex justify-center items-center">
+                <button onclick="handleFormSubmit()" id="btn-submit" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-4 rounded-lg transition-all flex justify-center items-center">
                     <span>応募を完了する</span>
                     <div id="loader" class="hidden loading ml-3 w-5 h-5 border-2 border-white rounded-full"></div>
                 </button>
             </div>
         </div>
 
-        <div id="success-msg" class="hidden bg-gray-900 p-12 rounded-2xl border border-blue-500/50 text-center shadow-2xl">
-            <div class="text-5xl mb-6">✅</div>
-            <h2 class="text-2xl font-bold mb-4 text-white">応募が完了しました</h2>
-            <p class="text-gray-400 mb-8 leading-relaxed text-sm">ご応募ありがとうございます。内容を確認後、当選者の方へご連絡させていただきます。</p>
-            <button onclick="window.close()" class="bg-gray-800 hover:bg-gray-700 text-white px-12 py-3 rounded-full border border-gray-600 transition text-sm">
-                ページを閉じる
-            </button>
+        <div id="success-msg" class="hidden bg-gray-900 p-12 rounded-2xl border border-blue-500/50 text-center">
+            <h2 class="text-2xl font-bold mb-4">応募が完了しました</h2>
+            <button onclick="window.close()" class="bg-gray-800 hover:bg-gray-700 text-white px-10 py-2 rounded-full border border-gray-600">閉じる</button>
         </div>
 
-        <div class="mt-12 space-y-8">
-            <section class="border-t border-gray-800 pt-8">
-                <h3 class="text-sm font-bold text-gray-400 mb-4 uppercase tracking-widest">プライバシーポリシー</h3>
-                <div class="policy-box h-64 overflow-y-auto bg-gray-900/50 p-6 rounded-lg text-[11px] text-gray-500 leading-relaxed">
-                    <p class="font-bold mb-4 text-gray-400 text-xs text-center">TUL Corporation プライバシーポリシー</p>
-                    <div class="space-y-4">
-                        <p>TUL Corporation（以下，「当社」といいます。）は，本ウェブサイト上で提供するキャンペーン（以下,「本キャンペーン」といいます。）における，ユーザーの個人情報の取扱いについて，以下のとおりプライバシーポリシー（以下，「本ポリシー」といいます。）を定めます。</p>
-                        <p><span class="font-bold text-gray-400">1.法令等の遵守</span>：関係法令、ガイドライン及び本ポリシーを遵守いたします。</p>
-                        <p><span class="font-bold text-gray-400">2.個人情報</span>：氏名，住所，電話番号，連絡先など特定の個人を特定できる情報を指します。</p>
-                        <p><span class="font-bold text-gray-400">3.個人情報等の取得</span>：登録時に氏名，住所，電話番号，メールアドレス等をお尋ねします。</p>
-                        <p><span class="font-bold text-gray-400">4.利用目的</span>：応募者確認、景品送付、統計処理等に使用します。</p>
-                        <p><span class="font-bold text-gray-400">5.利用目的の変更</span>：関連性を有すると合理的に認められる範囲で変更する場合があります。</p>
-                        <p><span class="font-bold text-gray-400">6.第三者提供</span>：同意なく第三者に提供することはありません。</p>
-                        <p><span class="font-bold text-gray-400">11.当選資格</span>：電子メール送信後、14日以内に返信がない場合は無効となります。</p>
-                    </div>
-                </div>
-            </section>
+        <div class="mt-12 pt-8 border-t border-gray-800">
+            <h3 class="text-sm font-bold text-gray-400 mb-4 uppercase">プライバシーポリシー</h3>
+            <div class="policy-box h-64 overflow-y-auto bg-gray-900/50 p-6 rounded-lg text-[11px] text-gray-500 leading-relaxed shadow-inner">
+                <p class="font-bold mb-4">TUL Corporation（以下，「当社」といいます。）は，本ウェブサイト上で提供するキャンペーンにおける，ユーザーの個人情報の取扱いについて，以下のとおり定めます。</p>
+                <p>1.法令等の遵守 / 2.個人情報の定義 / 3.取得方法 / 4.利用目的（景品送付等）... (中略) ...</p>
+                <p class="mt-4 pt-4 border-t border-gray-800 font-bold italic">11.当選資格に関する規定：電子メール送信後、14日以内に返信がない場合は無効となります。</p>
+            </div>
         </div>
     </div>
 
@@ -128,40 +114,22 @@
                     if (w > MAX) { h *= MAX / w; w = MAX; }
                     canvas.width = w; canvas.height = h;
                     canvas.getContext('2d').drawImage(img, 0, 0, w, h);
-                    resolve(canvas.toDataURL('image/jpeg', 0.7).split(',')[1]);
+                    resolve(canvas.toBase64String ? canvas.toBase64String() : canvas.toDataURL('image/jpeg', 0.7).split(',')[1]);
                 };
             };
         });
 
         async function handleFormSubmit() {
-            // HoneyPot 檢查
             if(document.getElementById('mid_name').value) return; 
-            
-            // 全欄位必填檢查清單
-            const textFields = [
-                { id: 'name', name: 'お名前' },
-                { id: 'email', name: 'メールアドレス' },
-                { id: 'phone', name: '電話番号' },
-                { id: 'postcode', name: '郵便番号' },
-                { id: 'address', name: 'ご住所' },
-                { id: 'serialNumber', name: '製品シリアル番号' }
-            ];
 
-            // 檢查文字欄位
-            for(let field of textFields) {
-                const val = document.getElementById(field.id).value.trim();
-                if(!val) {
-                    alert(`${field.name}を入力してください。`);
-                    document.getElementById(field.id).focus();
-                    return;
-                }
+            // 必填檢查
+            const ids = ['name', 'email', 'phone', 'postcode', 'address', 'serialNumber'];
+            for(let id of ids) {
+                if(!document.getElementById(id).value.trim()) { alert("全ての項目を入力してください。"); return; }
             }
-
-            // 檢查照片
-            const img1 = document.getElementById('img1').files[0];
-            const img2 = document.getElementById('img2').files[0];
-            if(!img1) { alert("シリアル番号の写真をアップロードしてください。"); return; }
-            if(!img2) { alert("購入証明の画像をアップロードしてください。"); return; }
+            if(!document.getElementById('img1').files[0] || !document.getElementById('img2').files[0]) {
+                alert("画像をアップロードしてください。"); return;
+            }
 
             const btn = document.getElementById('btn-submit');
             btn.disabled = true;
@@ -178,22 +146,17 @@
                             phone: document.getElementById('phone').value,
                             address: document.getElementById('address').value,
                             serialNumber: document.getElementById('serialNumber').value,
-                            img1Data: await compressImage(img1),
+                            img1Data: await compressImage(document.getElementById('img1').files[0]),
                             img1Type: 'image/jpeg',
-                            img2Data: await compressImage(img2),
+                            img2Data: await compressImage(document.getElementById('img2').files[0]),
                             img2Type: 'image/jpeg'
                         };
 
-                        await fetch(GAS_URL, { 
-                            method: 'POST', 
-                            mode: 'no-cors', 
-                            body: JSON.stringify(payload) 
-                        });
-                        
+                        await fetch(GAS_URL, { method: 'POST', mode: 'no-cors', body: JSON.stringify(payload) });
                         document.getElementById('form-container').classList.add('hidden');
                         document.getElementById('success-msg').classList.remove('hidden');
                     } catch (e) {
-                        alert("送信エラーが発生しました。");
+                        alert("送信エラー。");
                         btn.disabled = false;
                         document.getElementById('loader').classList.add('hidden');
                     }
