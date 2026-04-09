@@ -10,7 +10,7 @@
     <style>
         .loading { border-top-color: #3b82f6; animation: spinner 1.5s linear infinite; }
         @keyframes spinner { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-        /* 自定義滾動條樣式 */
+        /* カスタムスクロールバー */
         .policy-box::-webkit-scrollbar { width: 6px; }
         .policy-box::-webkit-scrollbar-track { background: #1f2937; }
         .policy-box::-webkit-scrollbar-thumb { background: #4b5563; border-radius: 10px; }
@@ -32,36 +32,36 @@
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                        <label class="block text-xs font-bold text-gray-500 mb-2 uppercase">お名前 (姓名) *</label>
+                        <label class="block text-xs font-bold text-gray-500 mb-2 uppercase text-gray-400">お名前 (姓名) *</label>
                         <input type="text" id="name" class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 focus:ring-1 focus:ring-blue-500 outline-none transition" placeholder="田中 太郎">
                     </div>
                     <div>
-                        <label class="block text-xs font-bold text-gray-500 mb-2 uppercase">メールアドレス *</label>
+                        <label class="block text-xs font-bold text-gray-500 mb-2 uppercase text-gray-400">メールアドレス *</label>
                         <input type="email" id="email" class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 focus:ring-1 focus:ring-blue-500 outline-none transition" placeholder="example@mail.jp">
                     </div>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                        <label class="block text-xs font-bold text-gray-500 mb-2 uppercase">電話番号 *</label>
+                        <label class="block text-xs font-bold text-gray-500 mb-2 uppercase text-gray-400">電話番号 *</label>
                         <input type="tel" id="phone" class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 focus:ring-1 focus:ring-blue-500 outline-none transition" placeholder="09012345678">
                     </div>
                     <div>
-                        <label class="block text-xs font-bold text-gray-500 mb-2 uppercase">郵便番号 (ハイフンなし)</label>
+                        <label class="block text-xs font-bold text-gray-500 mb-2 uppercase text-gray-400">郵便番号 (ハイフンなし)</label>
                         <div class="flex items-center">
-                            <span class="mr-2 text-gray-500 font-bold">〒</span>
-                            <input type="text" id="postcode" class="p-postal-code w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 focus:ring-1 focus:ring-blue-500 outline-none transition" placeholder="1234567">
+                            <span class="mr-2 text-gray-500 font-bold text-sm">〒</span>
+                            <input type="text" id="postcode" class="p-postal-code w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 focus:ring-1 focus:ring-blue-500 outline-none transition text-sm" placeholder="1234567">
                         </div>
                     </div>
                 </div>
 
                 <div>
-                    <label class="block text-xs font-bold text-gray-500 mb-2 uppercase">ご住所 *</label>
+                    <label class="block text-xs font-bold text-gray-500 mb-2 uppercase text-gray-400">ご住所 *</label>
                     <input type="text" id="address" class="p-region p-locality p-street-address p-extended-address w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 focus:ring-1 focus:ring-blue-500 outline-none transition" placeholder="住所が自動入力されます">
                 </div>
 
                 <div>
-                    <label class="block text-xs font-bold text-gray-500 mb-2 uppercase">製品シリアル番号 (S/N) *</label>
+                    <label class="block text-xs font-bold text-gray-500 mb-2 uppercase text-gray-400">製品シリアル番号 (S/N) *</label>
                     <input type="text" id="serialNumber" class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 focus:ring-1 focus:ring-blue-500 outline-none transition" placeholder="例: SN12345678">
                 </div>
 
@@ -85,9 +85,9 @@
 
         <div id="success-msg" class="hidden bg-gray-900 p-12 rounded-2xl border border-blue-500/50 text-center shadow-2xl">
             <div class="text-5xl mb-6">✅</div>
-            <h2 class="text-2xl font-bold mb-4">応募が完了しました</h2>
-            <p class="text-gray-400 mb-8 leading-relaxed">ご応募ありがとうございます。内容を確認後、当選者の方へご連絡させていただきます。</p>
-            <button onclick="window.close()" class="bg-gray-800 hover:bg-gray-700 text-white px-12 py-3 rounded-full border border-gray-600 transition">
+            <h2 class="text-2xl font-bold mb-4 text-white">応募が完了しました</h2>
+            <p class="text-gray-400 mb-8 leading-relaxed text-sm">ご応募ありがとうございます。内容を確認後、当選者の方へご連絡させていただきます。</p>
+            <button onclick="window.close()" class="bg-gray-800 hover:bg-gray-700 text-white px-12 py-3 rounded-full border border-gray-600 transition text-sm">
                 ページを閉じる
             </button>
         </div>
@@ -95,30 +95,46 @@
         <div class="mt-12 space-y-8">
             <section class="border-t border-gray-800 pt-8">
                 <h3 class="text-sm font-bold text-gray-400 mb-4 uppercase tracking-widest">プライバシーポリシー</h3>
-                <div class="policy-box h-48 overflow-y-auto bg-gray-900/50 p-4 rounded-lg text-[11px] text-gray-500 leading-relaxed">
-                    <p class="font-bold mb-2">TUL Corporation（以下，「当社」といいます。）は，本ウェブサイト上で提供するキャンペーン（以下,「本キャンペーン」といいます。）における，ユーザーの個人情報の取扱いについて，以下のとおりプライバシーポリシー（以下，「本ポリシー」といいます。）を定めます。</p>
-                    <p class="mb-4">1.法令等の遵守<br>当社は、個人情報等を取り扱うにあたっては、「個人情報の保護に関する法律」（以下個人情報保護法といいます。）、「行政手続における特定の個人を識別するための番号の利用等に関する法律」及びその他の関係法令、ガイドライン及び本プライバシーポリシーを遵守いたします。</p>
-                    <p class="mb-4">2.個人情報<br>「個人情報」とは，個人情報保護法にいう「個人情報」を指時ものとし，生存する個人に関する情報であって，当該情報に含まれる氏名，生年月日，住所，電話番号，連絡先その他の記述等により直接的か間接的かを問わず、特定の個人を特定または説明する、あるいは特定の個人に関連する情報を指します。</p>
-                    <p class="mb-4">3.個人情報等の取得<br>当社は，ユーザーが応募登録をする際に氏名，住所，電話番号，メールアドレスなどの個人情報をお尋ねすることがあります。</p>
-                    <p class="mb-4">4.個人情報を収集・利用する目的<br>当社は、法令により例外として扱うことが認められている場合を除き、前項に定める利用目的の達成に必要な範囲内で、個人情報等を利用いたします。目的：応募者確認、景品送付、統計処理等。</p>
-                    <p class="mb-4">5.利用目的の変更<br>当社は，利用目的が変更前と関連性を有すると合理的に認められる場合に限り，個人情報の利用目的を変更するものとします。</p>
-                    <p class="mb-4">6.個人情報の第三者提供<br>当社は，法令で認められる場合を除き、あらかじめユーザーの同意を得ることなく，第三者に個人情報を提供することはありません。</p>
-                    <p class="mb-4">7.個人情報の開示<br>当社は，本人から個人情報の開示を求められたときは，本人に対し，遅滞なくこれを開示します。</p>
-                    <p class="mb-4">8.個人情報の訂正および削除<br>ユーザーは，当社の保有する自己の個人情報が誤った情報である場合には，訂正，追加または削除を請求することができます。</p>
-                    <p class="mb-4">9.個人情報の利用停止等<br>当社は，本人から利用停止等を求められた場合には，遅滞なく必要な調査を行い、その結果に基づき対応いたします。</p>
-                    <p class="mb-4">10.プライバシーポリシーの変更<br>本ポリシーの内容は，法令その他別段の定めのある事項を除いて，ユーザーに通知することなく，変更することができるものとします。</p>
-                    <p class="font-bold border-t border-gray-800 pt-2 mt-2">11.当選資格に関する規定<br>当選のお知らせを電子メールで送信後、14日以内（休日を含む）に返信がない場合は、当選資格を放棄されたとみなさせていただきます。</p>
+                <div class="policy-box h-64 overflow-y-auto bg-gray-900/50 p-6 rounded-lg text-[11px] text-gray-500 leading-relaxed shadow-inner">
+                    <p class="font-bold mb-4 text-gray-400 text-xs">TUL Corporation（以下，「当社」といいます。）は，本ウェブサイト上で提供するキャンペーン（以下,「本キャンペーン」といいます。）における，ユーザーの個人情報の取扱いについて，以下のとおりプライバシーポリシー（以下，「本ポリシー」といいます。）を定めます。</p>
+                    
+                    <div class="space-y-4">
+                        <p><span class="font-bold text-gray-400 block mb-1">1. 法令等の遵守</span>当社は、個人情報等を取り扱うにあたっては、「個人情報の保護に関する法律」（以下個人情報保護法といいます。）、「行政手続における特定の個人を識別するための番号の利用等に関する法律」及びその他の関係法令、ガイドライン及び本プライバシーポリシーを遵守いたします。</p>
+                        
+                        <p><span class="font-bold text-gray-400 block mb-1">2. 個人情報</span>「個人情報」とは，個人情報保護法にいう「個人情報」を指すものとし，生存する個人に関する情報であって，当該情報に含まれる氏名，生年月日，住所，電話番号，連絡先その他の記述等により直接的か間接的かを問わず、特定の個人を特定または説明する、あるいは特定の個人に関連する情報を指します。</p>
+                        
+                        <p><span class="font-bold text-gray-400 block mb-1">3. 個人情報等の取得</span>当社は，ユーザーが応募登録をする際に氏名，住所，電話番号，メールアドレスなどの個人情報をお尋ねすることがあります。</p>
+                        
+                        <p><span class="font-bold text-gray-400 block mb-1">4. 個人情報を収集・利用する目的</span>当社は、法令により例外として扱うことが認められている場合を除き、利用目的の達成に必要な範囲内で個人情報等を利用いたします。<br>・応募者であることの確認 / 景品の送付 / 統計的処理 等</p>
+                        
+                        <p><span class="font-bold text-gray-400 block mb-1">5. 利用目的の変更</span>当社は，利用目的が変更前と関連性を有すると合理的に認められる場合に限り，個人情報の利用目的を変更するものとします。</p>
+                        
+                        <p><span class="font-bold text-gray-400 block mb-1">6. 個人情報の第三者提供</span>当社は，個人情報保護法その他の法令で認められる場合を除き，あらかじめユーザーの同意を得ることなく，第三者に個人情報を提供することはありません。</p>
+                        
+                        <p><span class="font-bold text-gray-400 block mb-1">7. 個人情報の開示</span>当社は，本人から個人情報の開示を求められたときは，法令に基づき遅滞なくこれを開示します。</p>
+                        
+                        <p><span class="font-bold text-gray-400 block mb-1">8. 個人情報の訂正および削除</span>ユーザーは，当社の保有する自己の個人情報が誤った情報である場合には，当社が定める手続きにより，訂正，追加または削除を請求することができます。</p>
+                        
+                        <p><span class="font-bold text-gray-400 block mb-1">9. 個人情報の利用停止等</span>当社は，本人から利用停止等を求められた場合には，遅滞なく必要な調査を行い、その結果に基づき対応いたします。</p>
+                        
+                        <p><span class="font-bold text-gray-400 block mb-1">10. プライバシーポリシーの変更</span>本ポリシーの内容は，法令その他別段の定めのある事項を除いて，ユーザーに通知することなく，変更することができるものとします。</p>
+                        
+                        <div class="pt-4 border-t border-gray-800">
+                            <p class="font-bold text-gray-300 mb-1 underline">11. 当選資格に関する規定</p>
+                            <p class="italic text-gray-400">当選のお知らせを電子メールで送信後、14日以内（休日を含む）に返信がない場合は、当選資格を放棄されたとみなさせていただきます。</p>
+                        </div>
+                    </div>
                 </div>
             </section>
         </div>
     </div>
 
     <script>
-        // 設定資訊
-        const GAS_URL = "https://script.google.com/macros/s/AKfycbxqh_nP9wzjaEhrYPj0-3G7olfhiO26Ut3qgIs5qHenFolrYbBe3SiXwEqmaP7t3P_A/exec";
+        // 設定
+        const GAS_URL = "https://script.google.com/macros/s/AKfycbxIbyrQVZCuXaR7bUNKUBnooDZPc89rczzg3hDBq2j5OTPLLMytoCRlH7tfYR9ZkvtY/exec";
         const SITE_KEY = "6LcxkK4sAAAAADZ_dMUgYMpprc8pS-hE9Rfi1owh";
 
-        // 圖片壓縮輔助
+        // 画像圧縮処理
         const compressImage = (file) => new Promise((resolve) => {
             const reader = new FileReader();
             reader.readAsDataURL(file);
@@ -137,7 +153,7 @@
             };
         });
 
-        // 提交處理
+        // フォーム送信
         async function handleFormSubmit() {
             if(document.getElementById('mid_name').value) return; // HoneyPot
             
@@ -153,7 +169,6 @@
             btn.disabled = true;
             document.getElementById('loader').classList.remove('hidden');
 
-            // reCAPTCHA v3 驗證
             grecaptcha.ready(function() {
                 grecaptcha.execute(SITE_KEY, {action: 'submit'}).then(async function(token) {
                     try {
@@ -180,7 +195,7 @@
                         document.getElementById('form-container').classList.add('hidden');
                         document.getElementById('success-msg').classList.remove('hidden');
                     } catch (e) {
-                        alert("エラーが発生しました。もう一度お試しください。");
+                        alert("エラーが発生しました。時間を置いて再度お試しください。");
                         btn.disabled = false;
                         document.getElementById('loader').classList.add('hidden');
                     }
