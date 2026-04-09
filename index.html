@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>グラフィックボード購入キャンペーン | 応募フォーム</title>
+    <title>キャンペーン応募フォーム</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://yubinbango.github.io/yubinbango/yubinbango.js" charset="UTF-8"></script>
     <style>
@@ -11,126 +11,68 @@
         @keyframes spinner { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-800 antialiased pb-20">
-
-    <div class="max-w-2xl mx-auto mt-10 p-6 bg-white shadow-lg rounded-lg border border-gray-200 h-adr">
+<body class="bg-gray-100 py-10">
+    <div class="max-w-xl mx-auto bg-white p-8 rounded-xl shadow-md h-adr">
         <span class="p-country-name" style="display:none;">Japan</span>
+        
+        <h1 class="text-2xl font-bold text-center mb-8 text-blue-900">キャンペーン応募</h1>
 
-        <header class="text-center mb-10">
-            <h1 class="text-2xl font-bold text-blue-900">グラフィックボード購入キャンペーン</h1>
-            <p class="text-sm text-gray-500 mt-2">必要事項を入力して応募してください。</p>
-        </header>
-
-        <section id="step1" class="space-y-6">
-            <h2 class="text-lg font-semibold border-b pb-2">Step 1: メールアドレスの確認</h2>
+        <div id="form-container" class="space-y-5">
             <div>
-                <label class="block text-sm font-medium mb-1">メールアドレス <span class="text-red-500">*</span></label>
-                <input type="email" id="email" class="w-full border border-gray-300 rounded px-3 py-2 focus:ring-2 focus:ring-blue-500 outline-none" placeholder="example@mail.jp">
-            </div>
-            <button onclick="sendOTP()" id="btn-otp" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 rounded transition">
-                認証コードを送信
-            </button>
-            
-            <div id="otp-input-area" class="hidden space-y-4 pt-4 border-t">
-                <p class="text-sm text-green-600 font-medium text-center">認証コードを送信しました。メールを確認してください。</p>
-                <label class="block text-sm font-medium mb-1">認証コード (6桁) <span class="text-red-500">*</span></label>
-                <input type="text" id="otp" maxlength="6" class="w-full border border-gray-300 rounded px-3 py-2 text-center text-xl tracking-widest outline-none" placeholder="000000">
-                <button onclick="showStep2()" class="w-full bg-gray-800 hover:bg-black text-white font-bold py-2 rounded transition">
-                    認証して次へ
-                </button>
-            </div>
-        </section>
-
-        <section id="step2" class="hidden space-y-6">
-            <h2 class="text-lg font-semibold border-b pb-2">Step 2: 応募者情報の入力</h2>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div>
-                    <label class="block text-sm font-medium mb-1">お名前 (姓名) <span class="text-red-500">*</span></label>
-                    <input type="text" id="name" class="w-full border border-gray-300 rounded px-3 py-2" placeholder="田中 太郎">
-                </div>
-                <div>
-                    <label class="block text-sm font-medium mb-1">電話番号 <span class="text-red-500">*</span></label>
-                    <input type="tel" id="phone" class="w-full border border-gray-300 rounded px-3 py-2" placeholder="09012345678">
-                </div>
+                <label class="block text-sm font-medium mb-1">お名前 (姓名) *</label>
+                <input type="text" id="name" class="w-full border border-gray-300 rounded px-3 py-2" placeholder="田中 太郎">
             </div>
 
-            <div class="space-y-4">
-                <label class="block text-sm font-medium mb-1">ご住所 <span class="text-red-500">*</span></label>
-                <div class="flex space-x-2">
+            <div>
+                <label class="block text-sm font-medium mb-1">メールアドレス (Email) *</label>
+                <input type="email" id="email" class="w-full border border-gray-300 rounded px-3 py-2" placeholder="example@mail.jp">
+            </div>
+
+            <div>
+                <label class="block text-sm font-medium mb-1">電話番号 *</label>
+                <input type="tel" id="phone" class="w-full border border-gray-300 rounded px-3 py-2" placeholder="09012345678">
+            </div>
+
+            <div>
+                <label class="block text-sm font-medium mb-1">ご住所 *</label>
+                <div class="flex space-x-2 mb-2">
                     <span class="py-2">〒</span>
                     <input type="text" id="postcode" class="p-postal-code w-32 border border-gray-300 rounded px-3 py-2" placeholder="1234567">
-                    <span class="text-xs text-gray-400 py-2">※数字のみ</span>
                 </div>
-                <input type="text" id="address" class="p-region p-locality p-street-address p-extended-address w-full border border-gray-300 rounded px-3 py-2" placeholder="住所が自動入力されます">
+                <input type="text" id="address" class="p-region p-locality p-street-address p-extended-address w-full border border-gray-300 rounded px-3 py-2" placeholder="自動入力されます">
             </div>
 
-            <div class="pt-4 border-t">
-                <label class="block text-sm font-medium mb-1">製品シリアル番号 (S/N) <span class="text-red-500">*</span></label>
+            <div>
+                <label class="block text-sm font-medium mb-1">製品シリアル番号 (S/N) *</label>
                 <input type="text" id="serialNumber" class="w-full border border-gray-300 rounded px-3 py-2" placeholder="例: SN12345678">
             </div>
 
-            <div class="space-y-4">
+            <div class="grid grid-cols-1 gap-4 border-t pt-4">
                 <div>
-                    <label class="block text-sm font-medium mb-1">製品シリアル番号の写真 <span class="text-red-500">*</span></label>
+                    <label class="block text-sm font-medium mb-1">シリアル番号の写真 *</label>
                     <input type="file" id="img1" accept="image/*" class="text-sm">
                 </div>
                 <div>
-                    <label class="block text-sm font-medium mb-1">購入証明（レシート・領収書等） <span class="text-red-500">*</span></label>
+                    <label class="block text-sm font-medium mb-1">購入証明 (領収書など) *</label>
                     <input type="file" id="img2" accept="image/*" class="text-sm">
                 </div>
             </div>
 
-            <div class="bg-gray-50 p-4 rounded text-xs text-gray-600">
-                <p>※ご提供いただいた個人情報は、本キャンペーンの抽選および賞品発送の目的にのみ使用いたします。</p>
-            </div>
-
-            <button onclick="submitAllData()" id="btn-submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded shadow transition flex justify-center items-center">
-                <span>応募を完了する</span>
+            <button onclick="submitData()" id="btn-submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded mt-6 flex justify-center items-center">
+                <span>応募する</span>
                 <div id="loader" class="hidden loading ml-3 w-5 h-5 border-2 border-white rounded-full"></div>
             </button>
-        </section>
+        </div>
 
-        <section id="success-msg" class="hidden text-center py-10 space-y-4">
-            <div class="text-5xl text-green-500">✓</div>
-            <h2 class="text-2xl font-bold">応募が完了しました</h2>
-            <p class="text-gray-600">この度はキャンペーンへのご応募ありがとうございます。<br>抽選結果は賞品の発送をもってかえさせていただきます。</p>
-        </section>
+        <div id="success-msg" class="hidden text-center py-10">
+            <h2 class="text-2xl font-bold text-green-600">応募完了！</h2>
+            <p class="mt-4 text-gray-600">ご応募ありがとうございました。</p>
+        </div>
     </div>
 
     <script>
-        // 【注意】請替換為您部署的 GAS 網路應用程式 URL
-        const GAS_URL = "https://script.google.com/macros/s/AKfycby14c-eD2iNDmCOzfS4OeVkncQ3zEMhCQG36F7nxnKIyDVABojtriYs__oxXtj3UEzW/exec";
+        const GAS_URL = "https://script.google.com/macros/s/AKfycbwDBkyoFzV09IIMmJjyxyfzqKvpNnTziPYYVX1vhgGbBHOLa05ayUdzLm6-AIu5ncqt/exec";
 
-        // 1. 發送 OTP
-        async function sendOTP() {
-            const email = document.getElementById('email').value;
-            if(!email) { alert("メールアドレスを入力してください"); return; }
-            
-            document.getElementById('btn-otp').innerText = "送信中...";
-            try {
-                const response = await fetch(GAS_URL, {
-                    method: 'POST',
-                    mode: 'no-cors', // 處理跨域，此模式無法讀取回傳值，建議改用 text/plain 傳輸或後端開啟 CORS
-                    body: JSON.stringify({ action: 'sendOTP', email: email })
-                });
-                // 因為 no-cors 無法得知成功與否，我們假設已發送並顯示輸入框
-                document.getElementById('otp-input-area').classList.remove('hidden');
-                document.getElementById('btn-otp').classList.add('hidden');
-            } catch (e) {
-                alert("エラーが発生しました。");
-            }
-        }
-
-        // 2. 切換至第二階段
-        function showStep2() {
-            const otp = document.getElementById('otp').value;
-            if(otp.length < 6) { alert("認證碼格式不正確"); return; }
-            document.getElementById('step1').classList.add('hidden');
-            document.getElementById('step2').classList.remove('hidden');
-        }
-
-        // 3. 圖片壓縮輔助函式
         const compressImage = (file) => new Promise((resolve) => {
             const reader = new FileReader();
             reader.readAsDataURL(file);
@@ -139,45 +81,31 @@
                 img.src = event.target.result;
                 img.onload = () => {
                     const canvas = document.createElement('canvas');
-                    const MAX_WIDTH = 1200; // 限制最大寬度以減小體積
-                    let width = img.width;
-                    let height = img.height;
-                    if (width > MAX_WIDTH) {
-                        height *= MAX_WIDTH / width;
-                        width = MAX_WIDTH;
-                    }
-                    canvas.width = width;
-                    canvas.height = height;
+                    const MAX_WIDTH = 1200;
+                    let width = img.width, height = img.height;
+                    if (width > MAX_WIDTH) { height *= MAX_WIDTH / width; width = MAX_WIDTH; }
+                    canvas.width = width; canvas.height = height;
                     const ctx = canvas.getContext('2d');
                     ctx.drawImage(img, 0, 0, width, height);
-                    resolve(canvas.toDataURL('image/jpeg', 0.7).split(',')[1]); // 壓縮品質 0.7
+                    resolve(canvas.toDataURL('image/jpeg', 0.7).split(',')[1]);
                 };
             };
         });
 
-        // 4. 正式提交
-        async function submitAllData() {
-            const btn = document.getElementById('btn-submit');
-            const loader = document.getElementById('loader');
+        async function submitData() {
+            // 基本驗證
+            const email = document.getElementById('email').value;
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailPattern.test(email)) { alert("Email 格式不正確"); return; }
             
-            // 簡易表單檢查
-            const fields = ['name', 'phone', 'address', 'serialNumber', 'otp'];
-            for(let f of fields) {
-                if(!document.getElementById(f).value) { alert("未入力の項目があります"); return; }
-            }
-            if(!document.getElementById('img1').files[0] || !document.getElementById('img2').files[0]) {
-                alert("写真をアップロードしてください"); return;
-            }
-
+            const btn = document.getElementById('btn-submit');
             btn.disabled = true;
-            loader.classList.remove('hidden');
+            document.getElementById('loader').classList.remove('hidden');
 
             try {
-                const data = {
-                    action: 'submitForm',
-                    email: document.getElementById('email').value,
-                    otp: document.getElementById('otp').value,
+                const payload = {
                     name: document.getElementById('name').value,
+                    email: email,
                     phone: document.getElementById('phone').value,
                     address: document.getElementById('address').value,
                     serialNumber: document.getElementById('serialNumber').value,
@@ -187,20 +115,18 @@
                     img2Type: 'image/jpeg'
                 };
 
-                // 改用 POST 到 GAS
-                // 註：若遇到 CORS 攔截，請確保 GAS 回傳時包含正確 Header
                 await fetch(GAS_URL, {
                     method: 'POST',
                     mode: 'no-cors',
-                    body: JSON.stringify(data)
+                    body: JSON.stringify(payload)
                 });
 
-                document.getElementById('step2').classList.add('hidden');
+                document.getElementById('form-container').classList.add('hidden');
                 document.getElementById('success-msg').classList.remove('hidden');
             } catch (e) {
-                alert("送信中にエラーが発生しました。");
+                alert("送信失敗");
                 btn.disabled = false;
-                loader.classList.add('hidden');
+                document.getElementById('loader').classList.add('hidden');
             }
         }
     </script>
