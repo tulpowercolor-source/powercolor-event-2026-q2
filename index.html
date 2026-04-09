@@ -3,99 +3,122 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PowerColor Campaign</title>
+    <title>グラフィックボード購入キャンペーン | 応募フォーム</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://yubinbango.github.io/yubinbango/yubinbango.js" charset="UTF-8"></script>
     <script src="https://www.google.com/recaptcha/api.js?render=6LcxkK4sAAAAADZ_dMUgYMpprc8pS-hE9Rfi1owh"></script>
     <style>
         .loading { border-top-color: #3b82f6; animation: spinner 1.5s linear infinite; }
         @keyframes spinner { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        /* 自定義滾動條樣式 */
+        .policy-box::-webkit-scrollbar { width: 6px; }
+        .policy-box::-webkit-scrollbar-track { background: #1f2937; }
+        .policy-box::-webkit-scrollbar-thumb { background: #4b5563; border-radius: 10px; }
     </style>
 </head>
 <body class="bg-gray-950 text-gray-200 antialiased h-adr">
     <span class="p-country-name" style="display:none;">Japan</span>
 
     <div class="max-w-4xl mx-auto overflow-hidden shadow-2xl">
-        <img src="https://via.placeholder.com/1200x400/111827/3b82f6?text=PowerColor+Campaign+Banner" alt="Banner" class="w-full h-auto">
+        <img src="https://via.placeholder.com/1200x400/111827/3b82f6?text=PowerColor+Campaign+Banner" alt="Campaign Banner" class="w-full h-auto block">
     </div>
 
     <div class="max-w-2xl mx-auto px-4 py-10">
         <div id="form-container" class="bg-gray-900 p-8 rounded-2xl shadow-xl border border-gray-800">
-            <h1 class="text-2xl font-black text-center mb-8 text-blue-500 tracking-wider">APPLICATION FORM</h1>
+            <h1 class="text-2xl font-black text-center mb-8 text-blue-500 tracking-wider uppercase">Application Form</h1>
             
             <div class="space-y-6">
-                <div style="display:none;"><input type="text" id="mid_name"></div>
+                <div style="display:none;"><input type="text" id="mid_name" tabindex="-1"></div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                        <label class="block text-xs font-bold text-gray-500 mb-1 uppercase">お名前 *</label>
-                        <input type="text" id="name" class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-2 focus:ring-1 focus:ring-blue-500 outline-none">
+                        <label class="block text-xs font-bold text-gray-500 mb-2 uppercase">お名前 (姓名) *</label>
+                        <input type="text" id="name" class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 focus:ring-1 focus:ring-blue-500 outline-none transition" placeholder="田中 太郎">
                     </div>
                     <div>
-                        <label class="block text-xs font-bold text-gray-500 mb-1 uppercase">メールアドレス *</label>
-                        <input type="email" id="email" class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-2 focus:ring-1 focus:ring-blue-500 outline-none">
+                        <label class="block text-xs font-bold text-gray-500 mb-2 uppercase">メールアドレス *</label>
+                        <input type="email" id="email" class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 focus:ring-1 focus:ring-blue-500 outline-none transition" placeholder="example@mail.jp">
                     </div>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                        <label class="block text-xs font-bold text-gray-500 mb-1 uppercase">電話番号 *</label>
-                        <input type="tel" id="phone" class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-2 focus:ring-1 focus:ring-blue-500 outline-none">
+                        <label class="block text-xs font-bold text-gray-500 mb-2 uppercase">電話番号 *</label>
+                        <input type="tel" id="phone" class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 focus:ring-1 focus:ring-blue-500 outline-none transition" placeholder="09012345678">
                     </div>
                     <div>
-                        <label class="block text-xs font-bold text-gray-500 mb-1 uppercase">郵便番号 (ハイフンなし)</label>
-                        <input type="text" id="postcode" class="p-postal-code w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-2 focus:ring-1 focus:ring-blue-500 outline-none">
+                        <label class="block text-xs font-bold text-gray-500 mb-2 uppercase">郵便番号 (ハイフンなし)</label>
+                        <div class="flex items-center">
+                            <span class="mr-2 text-gray-500 font-bold">〒</span>
+                            <input type="text" id="postcode" class="p-postal-code w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 focus:ring-1 focus:ring-blue-500 outline-none transition" placeholder="1234567">
+                        </div>
                     </div>
                 </div>
 
                 <div>
-                    <label class="block text-xs font-bold text-gray-500 mb-1 uppercase">ご住所 *</label>
-                    <input type="text" id="address" class="p-region p-locality p-street-address p-extended-address w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-2 focus:ring-1 focus:ring-blue-500 outline-none">
+                    <label class="block text-xs font-bold text-gray-500 mb-2 uppercase">ご住所 *</label>
+                    <input type="text" id="address" class="p-region p-locality p-street-address p-extended-address w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 focus:ring-1 focus:ring-blue-500 outline-none transition" placeholder="住所が自動入力されます">
                 </div>
 
                 <div>
-                    <label class="block text-xs font-bold text-gray-500 mb-1 uppercase">製品シリアル番号 *</label>
-                    <input type="text" id="serialNumber" class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-2 focus:ring-1 focus:ring-blue-500 outline-none">
+                    <label class="block text-xs font-bold text-gray-500 mb-2 uppercase">製品シリアル番号 (S/N) *</label>
+                    <input type="text" id="serialNumber" class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 focus:ring-1 focus:ring-blue-500 outline-none transition" placeholder="例: SN12345678">
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div class="bg-gray-800 p-4 rounded-lg border border-dashed border-gray-600">
-                        <label class="block text-[10px] text-gray-500 mb-2 font-bold uppercase">シリアル番号の写真</label>
-                        <input type="file" id="img1" accept="image/*" class="text-xs text-gray-400">
+                    <div class="bg-gray-800 p-4 rounded-lg border border-dashed border-gray-700 text-center">
+                        <label class="block text-[10px] font-bold text-gray-500 mb-2 uppercase tracking-widest">シリアル番号の写真</label>
+                        <input type="file" id="img1" accept="image/*" class="text-xs text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-xs file:bg-gray-700 file:text-gray-300 hover:file:bg-gray-600 cursor-pointer">
                     </div>
-                    <div class="bg-gray-800 p-4 rounded-lg border border-dashed border-gray-600">
-                        <label class="block text-[10px] text-gray-500 mb-2 font-bold uppercase">購入証明の画像</label>
-                        <input type="file" id="img2" accept="image/*" class="text-xs text-gray-400">
+                    <div class="bg-gray-800 p-4 rounded-lg border border-dashed border-gray-700 text-center">
+                        <label class="block text-[10px] font-bold text-gray-500 mb-2 uppercase tracking-widest">購入証明の画像</label>
+                        <input type="file" id="img2" accept="image/*" class="text-xs text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-xs file:bg-gray-700 file:text-gray-300 hover:file:bg-gray-600 cursor-pointer">
                     </div>
                 </div>
 
-                <button onclick="handleFormSubmit()" id="btn-submit" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-3 rounded-lg mt-4 flex justify-center items-center transition-all">
+                <button onclick="handleFormSubmit()" id="btn-submit" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-4 rounded-lg mt-4 shadow-lg shadow-blue-900/20 transition-all flex justify-center items-center">
                     <span>応募を完了する</span>
                     <div id="loader" class="hidden loading ml-3 w-5 h-5 border-2 border-white rounded-full"></div>
                 </button>
             </div>
         </div>
 
-        <div id="success-msg" class="hidden bg-gray-900 p-10 rounded-2xl border border-blue-500 text-center shadow-2xl">
-            <h2 class="text-2xl font-bold mb-4">応募完了</h2>
-            <p class="text-gray-400 mb-8">ご応募ありがとうございました。ページを閉じてください。</p>
-            <button onclick="window.close()" class="bg-gray-800 hover:bg-gray-700 text-white px-10 py-2 rounded-full border border-gray-600">閉じる</button>
+        <div id="success-msg" class="hidden bg-gray-900 p-12 rounded-2xl border border-blue-500/50 text-center shadow-2xl">
+            <div class="text-5xl mb-6">✅</div>
+            <h2 class="text-2xl font-bold mb-4">応募が完了しました</h2>
+            <p class="text-gray-400 mb-8 leading-relaxed">ご応募ありがとうございます。内容を確認後、当選者の方へご連絡させていただきます。</p>
+            <button onclick="window.close()" class="bg-gray-800 hover:bg-gray-700 text-white px-12 py-3 rounded-full border border-gray-600 transition">
+                ページを閉じる
+            </button>
         </div>
 
-        <div class="mt-12 p-6 text-[11px] text-gray-600 border-t border-gray-800 leading-relaxed">
-            <p class="font-bold text-gray-400 mb-2 text-xs">【注意事項】</p>
-            <ul class="list-disc pl-5 space-y-1">
-                <li>本キャンペーンは日本国内在住の方のみを対象としています。</li>
-                <li>お一人様につき一回限りの応募とさせていただきます。</li>
-                <li>個人情報は賞品発送の目的にのみ使用いたします。</li>
-            </ul>
+        <div class="mt-12 space-y-8">
+            <section class="border-t border-gray-800 pt-8">
+                <h3 class="text-sm font-bold text-gray-400 mb-4 uppercase tracking-widest">プライバシーポリシー</h3>
+                <div class="policy-box h-48 overflow-y-auto bg-gray-900/50 p-4 rounded-lg text-[11px] text-gray-500 leading-relaxed">
+                    <p class="font-bold mb-2">TUL Corporation（以下，「当社」といいます。）は，本ウェブサイト上で提供するキャンペーン（以下,「本キャンペーン」といいます。）における，ユーザーの個人情報の取扱いについて，以下のとおりプライバシーポリシー（以下，「本ポリシー」といいます。）を定めます。</p>
+                    <p class="mb-4">1.法令等の遵守<br>当社は、個人情報等を取り扱うにあたっては、「個人情報の保護に関する法律」（以下個人情報保護法といいます。）、「行政手続における特定の個人を識別するための番号の利用等に関する法律」及びその他の関係法令、ガイドライン及び本プライバシーポリシーを遵守いたします。</p>
+                    <p class="mb-4">2.個人情報<br>「個人情報」とは，個人情報保護法にいう「個人情報」を指時ものとし，生存する個人に関する情報であって，当該情報に含まれる氏名，生年月日，住所，電話番号，連絡先その他の記述等により直接的か間接的かを問わず、特定の個人を特定または説明する、あるいは特定の個人に関連する情報を指します。</p>
+                    <p class="mb-4">3.個人情報等の取得<br>当社は，ユーザーが応募登録をする際に氏名，住所，電話番号，メールアドレスなどの個人情報をお尋ねすることがあります。</p>
+                    <p class="mb-4">4.個人情報を収集・利用する目的<br>当社は、法令により例外として扱うことが認められている場合を除き、前項に定める利用目的の達成に必要な範囲内で、個人情報等を利用いたします。目的：応募者確認、景品送付、統計処理等。</p>
+                    <p class="mb-4">5.利用目的の変更<br>当社は，利用目的が変更前と関連性を有すると合理的に認められる場合に限り，個人情報の利用目的を変更するものとします。</p>
+                    <p class="mb-4">6.個人情報の第三者提供<br>当社は，法令で認められる場合を除き、あらかじめユーザーの同意を得ることなく，第三者に個人情報を提供することはありません。</p>
+                    <p class="mb-4">7.個人情報の開示<br>当社は，本人から個人情報の開示を求められたときは，本人に対し，遅滞なくこれを開示します。</p>
+                    <p class="mb-4">8.個人情報の訂正および削除<br>ユーザーは，当社の保有する自己の個人情報が誤った情報である場合には，訂正，追加または削除を請求することができます。</p>
+                    <p class="mb-4">9.個人情報の利用停止等<br>当社は，本人から利用停止等を求められた場合には，遅滞なく必要な調査を行い、その結果に基づき対応いたします。</p>
+                    <p class="mb-4">10.プライバシーポリシーの変更<br>本ポリシーの内容は，法令その他別段の定めのある事項を除いて，ユーザーに通知することなく，変更することができるものとします。</p>
+                    <p class="font-bold border-t border-gray-800 pt-2 mt-2">11.当選資格に関する規定<br>当選のお知らせを電子メールで送信後、14日以内（休日を含む）に返信がない場合は、当選資格を放棄されたとみなさせていただきます。</p>
+                </div>
+            </section>
         </div>
     </div>
 
     <script>
+        // 設定資訊
         const GAS_URL = "https://script.google.com/macros/s/AKfycbxqh_nP9wzjaEhrYPj0-3G7olfhiO26Ut3qgIs5qHenFolrYbBe3SiXwEqmaP7t3P_A/exec";
-        const SITE_KEY = "6LcxkK4sAAAAADZ_dMUgYMpprc8pS-hE9Rfi1owh"; // 已更新
+        const SITE_KEY = "6LcxkK4sAAAAADZ_dMUgYMpprc8pS-hE9Rfi1owh";
 
+        // 圖片壓縮輔助
         const compressImage = (file) => new Promise((resolve) => {
             const reader = new FileReader();
             reader.readAsDataURL(file);
@@ -114,16 +137,23 @@
             };
         });
 
+        // 提交處理
         async function handleFormSubmit() {
             if(document.getElementById('mid_name').value) return; // HoneyPot
+            
             const fields = ['name', 'email', 'phone', 'address', 'serialNumber'];
-            for(let id of fields) if(!document.getElementById(id).value) { alert("必須項目を入力してください"); return; }
-            if(!document.getElementById('img1').files[0] || !document.getElementById('img2').files[0]) { alert("画像をアップロードしてください"); return; }
+            for(let id of fields) {
+                if(!document.getElementById(id).value) { alert("必須項目をすべて入力してください。"); return; }
+            }
+            if(!document.getElementById('img1').files[0] || !document.getElementById('img2').files[0]) {
+                alert("画像をアップロードしてください。"); return;
+            }
 
             const btn = document.getElementById('btn-submit');
             btn.disabled = true;
             document.getElementById('loader').classList.remove('hidden');
 
+            // reCAPTCHA v3 驗證
             grecaptcha.ready(function() {
                 grecaptcha.execute(SITE_KEY, {action: 'submit'}).then(async function(token) {
                     try {
@@ -141,12 +171,16 @@
                             img2Type: 'image/jpeg'
                         };
 
-                        await fetch(GAS_URL, { method: 'POST', mode: 'no-cors', body: JSON.stringify(payload) });
+                        await fetch(GAS_URL, { 
+                            method: 'POST', 
+                            mode: 'no-cors', 
+                            body: JSON.stringify(payload) 
+                        });
                         
                         document.getElementById('form-container').classList.add('hidden');
                         document.getElementById('success-msg').classList.remove('hidden');
                     } catch (e) {
-                        alert("エラーが発生しました。");
+                        alert("エラーが発生しました。もう一度お試しください。");
                         btn.disabled = false;
                         document.getElementById('loader').classList.add('hidden');
                     }
