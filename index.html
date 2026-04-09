@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>グラフィックボード購入キャンペーン | 応募フォーム</title>
+    <title>グラフィックボード購入キャンペーン</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://yubinbango.github.io/yubinbango/yubinbango.js" charset="UTF-8"></script>
-    <script src="https://www.google.com/recaptcha/api.js?render=6LcxkK4sAAAAADZ_dMUgYMpprc8pS-hE9Rfi1owh"></script>
     <style>
         .loading { border-top-color: #3b82f6; animation: spinner 1.5s linear infinite; }
         @keyframes spinner { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
@@ -18,88 +17,68 @@
 <body class="bg-gray-950 text-gray-200 antialiased h-adr">
     <span class="p-country-name" style="display:none;">Japan</span>
 
-    <div class="max-w-4xl mx-auto overflow-hidden">
-        <img src="https://via.placeholder.com/1200x400/111827/3b82f6?text=PowerColor+Campaign+Banner" alt="Banner" class="w-full h-auto block">
+    <div class="max-w-4xl mx-auto overflow-hidden shadow-2xl">
+        <img src="https://via.placeholder.com/1200x400/111827/3b82f6?text=PowerColor+Campaign" alt="Banner" class="w-full h-auto block">
     </div>
 
     <div class="max-w-2xl mx-auto px-4 py-10">
         <div id="form-container" class="bg-gray-900 p-8 rounded-2xl shadow-xl border border-gray-800">
-            <h1 class="text-2xl font-black text-center mb-8 text-blue-500 tracking-wider">APPLICATION FORM</h1>
-            
+            <h1 class="text-2xl font-black text-center mb-8 text-blue-500 uppercase tracking-widest">Application Form</h1>
             <div class="space-y-6">
-                <div style="display:none;"><input type="text" id="mid_name" tabindex="-1"></div>
-
+                <div style="display:none;"><input type="text" id="mid_name"></div>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                        <label class="block text-xs font-bold text-gray-400 mb-2 uppercase">お名前 (姓名) <span class="text-red-500">*</span></label>
-                        <input type="text" id="name" class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 focus:ring-1 focus:ring-blue-500 outline-none transition" placeholder="田中 太郎">
+                        <label class="block text-xs font-bold text-gray-500 mb-2 uppercase">お名前 *</label>
+                        <input type="text" id="name" class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 outline-none">
                     </div>
                     <div>
-                        <label class="block text-xs font-bold text-gray-400 mb-2 uppercase">メールアドレス <span class="text-red-500">*</span></label>
-                        <input type="email" id="email" class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 focus:ring-1 focus:ring-blue-500 outline-none transition" placeholder="example@mail.jp">
+                        <label class="block text-xs font-bold text-gray-400 mb-2 uppercase">メールアドレス *</label>
+                        <input type="email" id="email" class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 outline-none">
                     </div>
                 </div>
-
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                        <label class="block text-xs font-bold text-gray-400 mb-2 uppercase">電話番号 <span class="text-red-500">*</span></label>
-                        <input type="tel" id="phone" class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 focus:ring-1 focus:ring-blue-500 outline-none transition" placeholder="09012345678">
+                        <label class="block text-xs font-bold text-gray-400 mb-2 uppercase">電話番号 *</label>
+                        <input type="tel" id="phone" class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 outline-none">
                     </div>
                     <div>
-                        <label class="block text-xs font-bold text-gray-400 mb-2 uppercase">郵便番号 (ハイフンなし) <span class="text-red-500">*</span></label>
-                        <div class="flex items-center">
-                            <span class="mr-2 text-gray-500 font-bold text-sm">〒</span>
-                            <input type="text" id="postcode" class="p-postal-code w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 focus:ring-1 focus:ring-blue-500 outline-none transition" placeholder="1234567">
-                        </div>
+                        <label class="block text-xs font-bold text-gray-400 mb-2 uppercase">郵便番号 *</label>
+                        <input type="text" id="postcode" class="p-postal-code w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 outline-none">
                     </div>
                 </div>
-
                 <div>
-                    <label class="block text-xs font-bold text-gray-400 mb-2 uppercase">ご住所 <span class="text-red-500">*</span></label>
-                    <input type="text" id="address" class="p-region p-locality p-street-address p-extended-address w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 focus:ring-1 focus:ring-blue-500 outline-none transition" placeholder="住所が自動入力されます">
+                    <label class="block text-xs font-bold text-gray-400 mb-2 uppercase">ご住所 *</label>
+                    <input type="text" id="address" class="p-region p-locality p-street-address p-extended-address w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 outline-none">
                 </div>
-
                 <div>
-                    <label class="block text-xs font-bold text-gray-400 mb-2 uppercase">製品シリアル番号 (S/N) <span class="text-red-500">*</span></label>
-                    <input type="text" id="serialNumber" class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 focus:ring-1 focus:ring-blue-500 outline-none transition" placeholder="SN12345678">
+                    <label class="block text-xs font-bold text-gray-400 mb-2 uppercase">シリアル番号 *</label>
+                    <input type="text" id="serialNumber" class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 outline-none">
                 </div>
-
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div class="bg-gray-800 p-4 rounded-lg border border-dashed border-gray-700 text-center">
-                        <label class="block text-[10px] font-bold text-gray-500 mb-2 uppercase">シリアル番号の写真 <span class="text-red-500">*</span></label>
-                        <input type="file" id="img1" accept="image/*" class="text-xs text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:bg-gray-700">
+                    <div class="bg-gray-800 p-4 rounded-lg border border-dashed border-gray-700">
+                        <label class="block text-[10px] font-bold text-gray-500 mb-2">シリアル番号写真 *</label>
+                        <input type="file" id="img1" accept="image/*" class="text-xs">
                     </div>
-                    <div class="bg-gray-800 p-4 rounded-lg border border-dashed border-gray-700 text-center">
-                        <label class="block text-[10px] font-bold text-gray-500 mb-2 uppercase">購入証明の画像 <span class="text-red-500">*</span></label>
-                        <input type="file" id="img2" accept="image/*" class="text-xs text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:bg-gray-700">
+                    <div class="bg-gray-800 p-4 rounded-lg border border-dashed border-gray-700">
+                        <label class="block text-[10px] font-bold text-gray-500 mb-2">購入証明画像 *</label>
+                        <input type="file" id="img2" accept="image/*" class="text-xs">
                     </div>
                 </div>
-
-                <button onclick="handleFormSubmit()" id="btn-submit" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-4 rounded-lg transition-all flex justify-center items-center">
+                <button onclick="handleFormSubmit()" id="btn-submit" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-4 rounded-lg flex justify-center items-center">
                     <span>応募を完了する</span>
                     <div id="loader" class="hidden loading ml-3 w-5 h-5 border-2 border-white rounded-full"></div>
                 </button>
             </div>
         </div>
 
-        <div id="success-msg" class="hidden bg-gray-900 p-12 rounded-2xl border border-blue-500/50 text-center">
+        <div id="success-msg" class="hidden bg-gray-900 p-12 rounded-2xl border border-blue-500/50 text-center shadow-2xl">
             <h2 class="text-2xl font-bold mb-4">応募が完了しました</h2>
             <button onclick="window.close()" class="bg-gray-800 hover:bg-gray-700 text-white px-10 py-2 rounded-full border border-gray-600">閉じる</button>
-        </div>
-
-        <div class="mt-12 pt-8 border-t border-gray-800">
-            <h3 class="text-sm font-bold text-gray-400 mb-4 uppercase">プライバシーポリシー</h3>
-            <div class="policy-box h-64 overflow-y-auto bg-gray-900/50 p-6 rounded-lg text-[11px] text-gray-500 leading-relaxed shadow-inner">
-                <p class="font-bold mb-4">TUL Corporation（以下，「当社」といいます。）は，本ウェブサイト上で提供するキャンペーンにおける，ユーザーの個人情報の取扱いについて，以下のとおり定めます。</p>
-                <p>1.法令等の遵守 / 2.個人情報の定義 / 3.取得方法 / 4.利用目的（景品送付等）... (中略) ...</p>
-                <p class="mt-4 pt-4 border-t border-gray-800 font-bold italic">11.当選資格に関する規定：電子メール送信後、14日以内に返信がない場合は無効となります。</p>
-            </div>
         </div>
     </div>
 
     <script>
         const GAS_URL = "https://script.google.com/macros/s/AKfycbxIbyrQVZCuXaR7bUNKUBnooDZPc89rczzg3hDBq2j5OTPLLMytoCRlH7tfYR9ZkvtY/exec";
-        const SITE_KEY = "6LcxkK4sAAAAADZ_dMUgYMpprc8pS-hE9Rfi1owh";
 
         const compressImage = (file) => new Promise((resolve) => {
             const reader = new FileReader();
@@ -114,54 +93,43 @@
                     if (w > MAX) { h *= MAX / w; w = MAX; }
                     canvas.width = w; canvas.height = h;
                     canvas.getContext('2d').drawImage(img, 0, 0, w, h);
-                    resolve(canvas.toBase64String ? canvas.toBase64String() : canvas.toDataURL('image/jpeg', 0.7).split(',')[1]);
+                    resolve(canvas.toDataURL('image/jpeg', 0.7).split(',')[1]);
                 };
             };
         });
 
         async function handleFormSubmit() {
             if(document.getElementById('mid_name').value) return; 
-
-            // 必填檢查
             const ids = ['name', 'email', 'phone', 'postcode', 'address', 'serialNumber'];
-            for(let id of ids) {
-                if(!document.getElementById(id).value.trim()) { alert("全ての項目を入力してください。"); return; }
-            }
-            if(!document.getElementById('img1').files[0] || !document.getElementById('img2').files[0]) {
-                alert("画像をアップロードしてください。"); return;
-            }
+            for(let id of ids) { if(!document.getElementById(id).value.trim()) { alert("全項目入力してください"); return; } }
+            if(!document.getElementById('img1').files[0] || !document.getElementById('img2').files[0]) { alert("画像を選択してください"); return; }
 
             const btn = document.getElementById('btn-submit');
             btn.disabled = true;
             document.getElementById('loader').classList.remove('hidden');
 
-            grecaptcha.ready(function() {
-                grecaptcha.execute(SITE_KEY, {action: 'submit'}).then(async function(token) {
-                    try {
-                        const payload = {
-                            recaptchaToken: token,
-                            mid_name: document.getElementById('mid_name').value,
-                            name: document.getElementById('name').value,
-                            email: document.getElementById('email').value,
-                            phone: document.getElementById('phone').value,
-                            address: document.getElementById('address').value,
-                            serialNumber: document.getElementById('serialNumber').value,
-                            img1Data: await compressImage(document.getElementById('img1').files[0]),
-                            img1Type: 'image/jpeg',
-                            img2Data: await compressImage(document.getElementById('img2').files[0]),
-                            img2Type: 'image/jpeg'
-                        };
+            try {
+                const payload = {
+                    mid_name: document.getElementById('mid_name').value,
+                    name: document.getElementById('name').value,
+                    email: document.getElementById('email').value,
+                    phone: document.getElementById('phone').value,
+                    address: document.getElementById('address').value,
+                    serialNumber: document.getElementById('serialNumber').value,
+                    img1Data: await compressImage(document.getElementById('img1').files[0]),
+                    img1Type: 'image/jpeg',
+                    img2Data: await compressImage(document.getElementById('img2').files[0]),
+                    img2Type: 'image/jpeg'
+                };
 
-                        await fetch(GAS_URL, { method: 'POST', mode: 'no-cors', body: JSON.stringify(payload) });
-                        document.getElementById('form-container').classList.add('hidden');
-                        document.getElementById('success-msg').classList.remove('hidden');
-                    } catch (e) {
-                        alert("送信エラー。");
-                        btn.disabled = false;
-                        document.getElementById('loader').classList.add('hidden');
-                    }
-                });
-            });
+                await fetch(GAS_URL, { method: 'POST', mode: 'no-cors', body: JSON.stringify(payload) });
+                document.getElementById('form-container').classList.add('hidden');
+                document.getElementById('success-msg').classList.remove('hidden');
+            } catch (e) {
+                alert("送信エラー。");
+                btn.disabled = false;
+                document.getElementById('loader').classList.add('hidden');
+            }
         }
     </script>
 </body>
